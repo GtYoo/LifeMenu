@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ver.1.0.0. -->
+
+<mapper namespace="com.lifemenu.admin.dao.mebc.INoticeMngrDaoMebc">
+	
+	<select id="selectOneNotice" parameterType="String" resultType="noticeDto">
+		SELECT 	*
+		FROM 	NOTICE
+		WHERE 	BBSCTT_NO = #{ bbscttNo }
+	</select>
+	
+	<insert id="insertNotice" parameterType="noticeDto">
+		INSERT INTO NOTICE 
+		( BBSCTT_NO , MBER_CODE , BBSCTT_SJ , BBSCTT_CN , BBSCTT_DT )
+		VALUES 
+		( #{ bbscttNo } , #{ mberCode } , #{ bbscttSj } , #{ bbscttCn } , TO_DATE(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') )
+	</insert>
+	
+	<update id="updateNotice" parameterType="noticeDto">
+		UPDATE  NOTICE
+		SET 	BBSCTT_SJ 	= #{ bbscttSj }
+		 	  , BBSCTT_CN 	= #{ bbscttCn }
+		WHERE 	BBSCTT_NO 	= #{ bbscttNo }
+	</update>
+	
+	<delete id="deleteNotice">
+		DELETE FROM NOTICE
+		WHERE 		BBSCTT_NO = #{ bbscttNo }
+	</delete>
+	
+</mapper>

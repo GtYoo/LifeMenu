@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- mybatis가 NULL값을 인식하도록 하는 설정 -->
+		<setting name="jdbcTypeForNull" value="VARCHAR" />
+		<setting name="jdbcTypeForNull" value="DATE" />
+
+		<!-- camel표기법 처리 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+
+	<typeAliases>  <!-- 수정요망 -->
+		<typeAlias type="com.lifemenu.dto.SetleDto" alias="setleDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.MberDto" alias="mberDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.RefndDto" alias="refndDto"></typeAlias>
+		
+		<typeAlias type="com.lifemenu.dto.BbscttDto" alias="bbscttDto"/>
+		<typeAlias type="com.lifemenu.dto.CoinRepositoryDto" alias="coinRepositoryDto"/>
+		<typeAlias type="com.lifemenu.dto.NoticeDto" alias="noticeDto"/>
+		<typeAlias type="com.lifemenu.dto.ReviewDto" alias="reviewDto"/>
+		<typeAlias type="com.lifemenu.dto.WalletDto" alias="walletDto"/>
+		<typeAlias type="com.lifemenu.dto.WalletDtlsDto" alias="walletDtlsDto"/>
+		<typeAlias type="com.lifemenu.dto.TransactionListDto" alias="transactionListDto"/>
+		
+		<!-- 관리자용 -->
+		<typeAlias type="com.lifemenu.admin.dto.CmmnCodeDto" alias="cmmnCodeDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.HistDto" alias="histDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.HistMngrDto" alias="histMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.MberMngrDto" alias="mberMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.MngrInqryDto" alias="mngrInqryDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.NoticeMngrDto" alias="noticeMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.BbsMngrDto" alias="bbsMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.TagDto" alias="tagDto" />
+		<typeAlias type="com.lifemenu.admin.dto.TagMngrDto" alias="tagMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.TagReadCntDto" alias="tagReadCntDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.InqryMngrDto" alias="inqryMngrDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.VochrMngrDto" alias="vochrMngrDto"/>
+		
+		<!-- 관리자 히스토리 -->
+		<typeAlias type="com.lifemenu.admin.dto.hist.CoinRepositoryHistDto" alias="coinRepositoryHistDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.hist.RefndHistDto" alias="refndHistDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.hist.ResveSetleHistDto" alias="resveSetleHistDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.hist.VochrHistDto" alias="vochrHistDto"/>
+		<typeAlias type="com.lifemenu.admin.dto.hist.WalletDtlsHistDto" alias="walletDtlsHistDto"/>
+		
+		<!-- vo -->
+		<typeAlias type="com.lifemenu.admin.vo.HistoryParamVo" alias="historyParamVo"/>
+		<typeAlias type="com.lifemenu.admin.vo.ConditionParamVo" alias="conditionParamVo"/>
+		<typeAlias type="com.lifemenu.admin.vo.PageParamVo" alias="pageParamVo"/>
+		
+		
+		<!-- 마현우 -->
+		<typeAlias type="com.lifemenu.dto.SellerConditionDto" alias="sellerConditionDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.SellerDto" alias="sellerDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.SellerSearchDto" alias="sellerSearchDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.SellerImageDto" alias="sellerImageDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.SellersVoucherPriceDto" alias="sellersVoucherPriceDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.VoucherDto" alias="voucherDto"></typeAlias>
+		<!--  -->
+		
+		<!-- 박인우 -->
+		<typeAlias type="com.lifemenu.dto.NoticeDto" alias="noticeDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.ReviewDto" alias="reviewDto"></typeAlias>
+		<typeAlias type="com.lifemenu.dto.BbscttDto" alias="bbscttDto"></typeAlias>
+		<!--  -->
+	</typeAliases>
+
+</configuration>

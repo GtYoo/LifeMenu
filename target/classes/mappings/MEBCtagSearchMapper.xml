@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.ITagSearchDaoMebc">
+
+	<insert id="insertTagSearch">
+		INSERT INTO TAG_SEARCH
+		(
+			MBER_CODE
+		,	TAG_CODE
+		)
+		VALUES
+		(
+			#{mberCode}
+		,	#{tagCode}
+		)
+	</insert>
+
+	<delete id="deleteTagSearch">
+		DELETE FROM TAG_SEARCH
+		WHERE MBER_CODE = #{mberCode}
+	</delete>
+	
+</mapper>

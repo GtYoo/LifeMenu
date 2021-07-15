@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.ILoginPreDaoMebc">
+	
+	<select id="selectOneMber" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Code = #{code}
+	</select>
+	
+	<select id="selectOneWallet" resultType="walletDto"  parameterType="String">
+		SELECT * FROM WALLET WHERE mber_Code = #{code}
+	</select>
+
+	<insert id="insertMber" parameterType="mberDto">
+		INSERT INTO MBER VALUES(#{mberCode},#{mberId},#{mberPw},#{mberRlnm},#{bankCode},#{mberAcountNo},#{mberEmail},#{mberNcnm},#{mberTel},#{mberBrthdy},#{mberAuthorLevel},to_char(sysdate,'yyyymmdd'),#{mberSecsnAt})
+	</insert>
+	
+	<insert id="insertCoinCo" parameterType="walletDto">
+		INSERT INTO WALLET VALUES(#{mberCode},#{coinCo})
+	</insert>
+	
+	<!-- 0 = pw / 1 = code -->
+	<update id="findUpdatePw">
+		UPDATE MBER SET mber_Pw=#{0} WHERE mber_Code = #{1}
+	</update>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.ILoginAfterDaoMebc">
+	
+	<select id="selectOneMber" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Code = #{code}
+	</select>
+	
+	<update id="updateMber"> <!-- 회원정보 수정 -->
+	UPDATE MBER SET 
+	mber_Code=#{mberCode}
+	,mber_Id=#{mberId}
+	,mber_Pw=#{mberPw}
+	,mber_Rlnm=#{mberRlnm}
+	,BANK_CODE=#{bankCode}
+	,mber_Acount_No=#{mberAcountNo}
+	,mber_Email=#{mberEmail}
+	,mber_Ncnm=#{mberNcnm}
+	,mber_Tel=#{mberTel}
+	,mber_Brthdy=#{mberBrthdy}
+	,mber_Author_Level=#{mberAuthorLevel}
+	,srbde=#{srbde}
+	,mber_secsn_at=#{mberSecsnAt} 
+	WHERE mber_Code=#{mberCode}
+		
+	</update>
+	
+	<update id="updateScenc">	<!-- 회원탈퇴 -->
+		UPDATE MBER SET MBER_SECSN_AT='Y' WHERE mber_Code = #{code}
+	</update>
+
+</mapper>

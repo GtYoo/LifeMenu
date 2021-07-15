@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ver.1.0.1. -->
+
+<mapper namespace="com.lifemenu.admin.dao.qebc.IMngrInqryDaoQebc">
+	
+	<select id="selectOneMngrInqryByMngrAnswerNo" parameterType="String" resultType="mngrInqryDto">
+		SELECT 	*
+		FROM 	MNGR_INQRY
+		WHERE 	MNGR_ANSWER_NO = #{ mngrAnswerNo }
+	</select>
+	
+	<resultMap type="inqryMngrDto" id="inqryMap">
+	    <result column="MBER_NCNM" property="mberNcnm" />
+	    <result column="MBER_RLNM" property="mberRlnm" />
+	    <result column="MBER_EMAIL" property="mberEmail" />
+	    <association property="mngrInqryDto" javaType="mngrInqryDto">
+	     	<id column="MNGR_INQRY_NO" property="mngrInqryNo" />
+	     	<result column="MBER_CODE" property="mberCode" />
+	     	<result column="MNGR_ANSWER_NO" property="mngrAnswerNo" />
+	     	<result column="INQRY_SJ" property="inqrySj" />
+	     	<result column="INQRY_CN" property="inqryCn" />
+	     	<result column="INQRY_DT" property="inqryDt" />
+	    </association>
+	</resultMap>
+	
+	<select id="selectMultiMngrInqry" parameterType="pageParamVo" resultMap="inqryMap">
+		<![CDATA[
+		SELECT 	*
+ 		FROM 	( SELECT 	ROWNUM 	RNUM
+ 		 				  , O.* 
+ 		 		  FROM 	  ( SELECT 	I.* 
+ 		 		   				  , MBER_NCNM
+ 		 		   				  , MBER_RLNM
+ 		 		   				  , MBER_EMAIL
+ 		 		  			FROM 	MNGR_INQRY 	I
+ 		 		  			 	  ,	MBER 		M
+ 		 		  			WHERE 	I.MBER_CODE = M.MBER_CODE
+ 		 		  			AND 	MBER_AUTHOR_LEVEL != '3'
+ 		 		  			ORDER 	BY MNGR_INQRY_NO DESC 
+ 		 		  		  )	O
+ 		 		) 
+ 		WHERE 	RNUM 	>= #{ start }
+ 		AND 	ROWNUM 	<= #{ cnt }
+ 		]]>
+	</select>
+	
+	<select id="selectMultiMngrInqryByCondition" parameterType="conditionParamVo" resultMap="inqryMap">
+		<![CDATA[
+		SELECT 	*
+ 		FROM 	( SELECT 	ROWNUM 	RNUM
+ 		 				  , O.* 
+ 		 		  FROM 	  ( SELECT 	I.* 
+ 		 		   				  , MBER_NCNM
+ 		 		   				  , MBER_RLNM
+ 		 		   				  , MBER_EMAIL
+ 		 		  			FROM 	MNGR_INQRY 	I
+ 		 		  			 	  ,	MBER 		M
+ 		 		  			WHERE 	I.MBER_CODE = M.MBER_CODE
+ 		 		  			AND 	MBER_AUTHOR_LEVEL != '3'
+ 		 		  			AND 	${ conditionType } LIKE #{ condition }
+ 		 		  			ORDER 	BY MNGR_INQRY_NO DESC 
+ 		 		  		  )	O
+ 		 		) 
+ 		WHERE 	RNUM 	>= #{ start }
+ 		AND 	ROWNUM 	<= #{ cnt }
+ 		]]>
+	</select>
+	
+	<select id="selectMngrInqryTotalCount" resultType="int">
+	 	SELECT 	COUNT(*) CNT
+	 	FROM 	MNGR_INQRY
+	</select>
+	
+	<select id="selectNextMngrInqryNo" resultType="int">
+	    SELECT 	NVL(( MAX(MNGR_INQRY_NO) + 1 ), 0) NEXT
+	 	FROM 	MNGR_INQRY
+	</select>
+	
+</mapper>

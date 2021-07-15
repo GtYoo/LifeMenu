@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.admin.dao.mebc.ITagReadCntDaoMebc">
+
+ 	<!-- 확인필요 원해 integer타입 반환 -->
+	<select id="selectOneTagReadCnt" resultType="tagReadCntDto">
+		SELECT * 
+		FROM TAG_READ_CNT 
+		WHERE TAG_CODE = #{tagCode}
+	</select>
+
+	<insert id="insertTagReadCnt">
+		INSERT INTO TAG_READ_CNT
+		(
+			TAG_CODE
+			, TAG_READ_CNT
+		)
+		VALUES
+		(
+			#{tagCode}
+			, 0
+		)
+	</insert>
+
+	<update id="updateTagReadCnt">
+		UPDATE TAG_READ_CNT SET
+		TAG_READ_CNT = TAG_READ_CNT + 1
+		WHERE TAG_CODE = #{tagCode}
+	</update>
+	
+	<delete id="deleteTagReadCnt">
+		DELETE FROM TAG_READ_CNT
+		WHERE TAG_CODE = #{tagCode}
+	</delete>
+
+</mapper>

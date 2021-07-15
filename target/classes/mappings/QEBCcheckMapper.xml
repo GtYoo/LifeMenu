@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.ICheckDaoQebc">
+
+	<!-- 아이디 중복체크 -->
+	<select id="selectOneIdCheck" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Id = #{id}
+	</select>
+	
+	<!-- 닉네임 중복체크 -->
+	<select id="selectOneNcnmCheck" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Ncnm = #{ncnm}
+	</select>
+	
+	<!-- 이메일 중복체크 -->
+	<select id="selectOneEmailCheck" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Email = #{email}
+	</select>
+	
+	<!-- 뭔일 할떄 비밀번호 체크용 -->
+	<select id="selectOnePw" resultType="mberDto"  parameterType="String">
+		SELECT * FROM MBER WHERE mber_Code = #{0} and mber_Pw = #{1}
+	</select>
+
+</mapper>

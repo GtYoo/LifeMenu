@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lifemenu.dao.qebc.ISellerDaoQebc">
+
+	<resultMap id="sellerImageResult" type="String">
+		<result property="imageAdres" column="IMAGE_ADRES"/>
+	</resultMap>
+
+	<resultMap id="sellerSearchResult" type="sellerSearchDto">
+		<result property="mberCode" column="MBER_CODE"/>
+		<result property="selerAge" column="SELER_AGE"/>
+		<result property="selerOccp" column="SELER_OCCP"/>
+		<result property="selerAprsm" column="SELER_APRSM"/>
+		<result property="mberNcnm" column="MBER_NCNM"/>
+		<result property="avgPrice" column="AVG_PRICE"/>
+	</resultMap>
+	
+	<resultMap id="sellersVoucherPriceResult" type="sellersVoucherPriceDto">
+		<result property="mealPrearngeDt" column="MEAL_PREARNGE_DT"/>
+		<result property="vochrPrice" column="VOCHR_PRICE"/>
+	</resultMap>
+	
+	<resultMap id="reviewResult" type="reviewDto">
+		<result property="reviewDate" column="REVIEW_DATE"/>
+		<result property="reviewCn" column="REVIEW_CN"/>
+	</resultMap>
+	
+	<select id="selectMultiSellerImage" resultMap="sellerImageResult">
+		SELECT IMAGE_ADRES FROM SELER_IMAGE WHERE MBER_CODE = #{mberCode} ORDER BY SNO ASC
+	</select>
+	
+	<select id="selectNickName" resultType="String">
+		SELECT MBER_NCNM FROM MBER WHERE MBER_CODE = #{mberCode}
+	</select>
+	<!-- 7월14일 -->
+	<select id="selectMultiReview" resultMap="reviewResult">
+		SELECT RV.REVIEW_DATE   REVIEW_DATE
+     		 , RV.REVIEW_CN     REVIEW_CN
+		FROM   REVIEW   RV
+		JOIN   SETLE    ST
+		ON     RV.SETLE_CODE = ST.SETLE_CODE
+		JOIN   VOCHR    V
+		ON     ST.VOCHR_CODE = V.VOCHR_CODE
+		WHERE  V.MBER_CODE = #{mberCode}
+		AND    ST.PURCHS_DCSN_AT = 'Y'
+		ORDER  BY  REVIEW_DATE DESC
+	</select>
+	<!-- 7월14일 -->
+	<select id="selectMultiPurchaserAge" resultType="String">
+		SELECT M.MBER_BRTHDY    MBER_BRTHDY
+		FROM   MBER     M
+		JOIN   SETLE    S
+		ON     M.MBER_CODE = S.MBER_CODE
+		JOIN   VOCHR    V
+		ON     S.VOCHR_CODE = V.VOCHR_CODE
+		WHERE  V.MBER_CODE = #{mberCode}
+		AND    S.PURCHS_DCSN_AT = 'Y'
+		ORDER  BY MBER_BRTHDY DESC
+	</select>
+	
+	<select id="selectMultiSeller" resultMap="sellerSearchResult">
+		<![CDATA[
+		SELECT *
+		FROM ( SELECT O.*
+			  		, ROWNUM RNUM
+			   FROM ( SELECT S.MBER_CODE MBER_CODE
+    					   , S.SELER_AGE SELER_AGE
+     					   , S.SELER_OCCP SELER_OCCP
+     					   , S.SELER_APRSM SELER_APRSM
+     					   , ( SELECT MBER_NCNM FROM MBER M WHERE S.MBER_CODE = M.MBER_CODE) MBER_NCNM
+     					   , AVG_PRICE
+					  FROM   SELER S
+					  JOIN   ( SELECT MBER_CODE
+              				 , AVG(VOCHR_PRICE) AVG_PRICE
+              				 , MAX(VOCHR_REGIST_DT) VOCHR_REGIST_DT
+        					   FROM   VOCHR 
+        					   WHERE  DELNG_AT = 'Y'
+        					   GROUP  BY MBER_CODE
+       						 ) V
+					  ON     S.MBER_CODE = V.MBER_CODE
+					  ORDER BY VOCHR_REGIST_DT DESC
+					) O
+			 )
+		WHERE RNUM >= ((#{cri.pageNum} - 1)* #{cri.amount} + 1)
+		AND ROWNUM <= #{cri.pageNum} * #{cri.amount}
+		ORDER  BY DBMS_RANDOM.RANDOM
+		]]>
+	</select>
+
+	<select id="selectMultiSellerWithCondition" parameterType="map" resultMap="sellerSearchResult">
+		<![CDATA[
+		SELECT *
+		FROM ( SELECT O.*
+			  		, ROWNUM RNUM
+			   FROM ( SELECT S.MBER_CODE MBER_CODE
+    					   , S.SELER_AGE SELER_AGE
+     					   , S.SELER_OCCP SELER_OCCP
+     					   , S.SELER_APRSM SELER_APRSM
+     					   , ( SELECT MBER_NCNM FROM MBER M WHERE S.MBER_CODE = M.MBER_CODE) MBER_NCNM
+     					   , AVG_PRICE
+					  FROM   SELER S
+					  JOIN   ( SELECT MBER_CODE 
+        					   FROM   TAG_SEARCH
+        					   WHERE  TAG_CODE = #{con.tagCode}
+       						 ) T
+					  ON     S.MBER_CODE = T.MBER_CODE
+					  JOIN   ( SELECT MBER_CODE
+              				 , AVG(VOCHR_PRICE) AVG_PRICE
+              				 , MAX(VOCHR_REGIST_DT) VOCHR_REGIST_DT
+        					   FROM   VOCHR 
+        					   WHERE  DELNG_AT = 'Y'
+        					   GROUP  BY MBER_CODE
+       						 ) V
+					  ON     S.MBER_CODE = V.MBER_CODE
+					  WHERE  S.SELER_AGE >= #{con.ageMin}
+					  AND	 S.SELER_AGE <= #{con.ageMax} 
+					  AND    AVG_PRICE   >= #{con.priceMin}  
+					  AND    AVG_PRICE   <= #{con.priceMax}
+					  ORDER BY VOCHR_REGIST_DT DESC
+					 ) O
+			 )
+		WHERE RNUM >= ((#{cri.pageNum} - 1) * #{cri.amount} + 1)
+		AND ROWNUM <= #{cri.pageNum} * #{cri.amount}
+		ORDER  BY DBMS_RANDOM.RANDOM
+		]]>
+	</select>
+	<!-- 7월14일 -->
+	<select id="selectMultiSellersVoucherPrice" resultMap="sellersVoucherPriceResult">
+		SELECT V.MEAL_PREARNGE_DT MEAL_PREARNGE_DT
+     		 , V.VOCHR_PRICE      VOCHR_PRICE
+		FROM   VOCHR V
+		JOIN   SELER S
+		ON     V.MBER_CODE = S.MBER_CODE
+		JOIN   SETLE S
+		ON     V.VOCHR_CODE = S.VOCHR_CODE
+		WHERE  PURCHS_DCSN_AT = 'Y'
+		AND    S.MBER_CODE = #{mberCode}
+		ORDER  BY MEAL_PREARNGE_DT ASC
+	</select>
+	<!-- 7월14일 -->
+	<select id="selectMberCode" resultType="String">
+		SELECT V.MBER_CODE
+		FROM   VOCHR    V
+		JOIN   SETLE S
+		ON     V.VOCHR_CODE = S.VOCHR_CODE
+		WHERE  S.SETLE_CODE = #{setleCode}
+	</select>
+	
+</mapper>

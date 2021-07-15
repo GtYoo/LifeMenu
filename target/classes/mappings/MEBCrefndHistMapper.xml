@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.admin.dao.mebc.IRefndHistDaoMebc">
+	
+	<insert id="insertRefndHist" parameterType="refndHistDto">
+		INSERT INTO REFND_HIST 
+		( RCORD_DT , HIST_SE , SETLE_CODE , REFND_PC 
+		, REFND_DT , REFND_AT , REFND_RESN )
+		VALUES (
+		 	  SYSTIMESTAMP
+		 	, #{histSe} 
+		 	, #{setleCode}
+		 	, #{refndPc}
+		 	, #{refndDt}
+		 	, #{refndAt}
+		 	, #{refndResn}
+		)
+	</insert>
+	
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lifemenu.dao.mebc.ISellerImageDaoMebc">
+
+	<resultMap id="sellerImageResult" type="String">
+		<result property="imageAdres" column="IMAGE_ADRES"/>
+	</resultMap>
+	
+	<select id="selectOneSellerImage" resultMap="sellerImageResult">
+		SELECT IMAGE_ADRES FROM SELER_IMAGE WHERE MBER_CODE = #{mberCode} AND SNO = 1
+	</select>
+	
+	<insert id="insertSellerImage" parameterType="sellerImageDto">
+		INSERT INTO SELER_IMAGE(MBER_CODE, SNO, IMAGE_ADRES)
+		VALUES(#{mberCode}, #{sno}, #{imageAdres})
+	</insert>
+	
+	<delete id="deleteSellerImage">
+		DELETE FROM SELER_IMAGE WHERE MBER_CODE = #{mberCode}
+	</delete>
+	
+</mapper>
