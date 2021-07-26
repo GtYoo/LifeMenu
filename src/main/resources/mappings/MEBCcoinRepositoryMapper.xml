@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.ICoinRepositoryDaoMebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	<select id="selectOneCoinRepository" resultType="coinRepositoryDto">
+		SELECT * FROM COIN_REPOSITORY WHERE DELNG_CODE = #{delngCode}
+	</select>
+
+	<update id="updateCoinRepository">
+		UPDATE COIN_REPOSITORY SET REPOSITORY_COIN_CO = #{repositoryCoinCo}
+		WHERE DELNG_CODE = #{delngCode}
+	</update>
+
+	<insert id="insertCoinRepository">
+		INSERT INTO COIN_REPOSITORY
+		(DELNG_CODE, MBER_CODE, SETLE_CODE, DELNG_DT, DELNG_SE, DELNG_AMOUNT, REPOSITORY_COIN_CO)
+		VALUES(#{delngCode}, #{mberCode}, #{setleCode}, SYSDATE, #{delngSe}, #{delngAmount}, #{repositoryCoinCo})
+	</insert>
+
+</mapper>

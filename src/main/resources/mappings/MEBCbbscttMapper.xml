@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.IBbscttDaoMebc" >
+<!-- resultType:sqlmapConfig.xml에서 알리아스설정으로 간단히씀 -->
+
+	<select id="selectOneBbsctt" parameterType="String" resultType="bbscttDto">
+		SELECT 	* 
+		FROM 	BBS
+		WHERE 	BBSCTT_NO = #{bbscttNo}
+	</select>
+	
+	<update id="bbscttUpdate" parameterType="bbscttDto">
+		UPDATE  BBS
+		SET 	MBER_CODE   = #{mberCode}
+			  ,	BBSCTT_SJ 	= #{bbscttSj}
+		 	  , BBSCTT_CN 	= #{bbscttCn}
+		WHERE 	BBSCTT_NO 	= #{bbscttNo}
+	</update>
+	
+	<insert id="insertBbsctt" parameterType="bbscttDto">
+		INSERT INTO BBS
+		(BBSCTT_NO, MBER_CODE, UP_BBSCTT_NO, BBSCTT_SJ, BBSCTT_CN, BBSCTT_DT)
+		VALUES(#{bbscttNo}, #{mberCode}, #{upBbscttNo}, #{bbscttSj}, #{bbscttCn}, SYSDATE)
+	</insert>
+	
+	<insert id="insertComent" parameterType="bbscttDto">
+		INSERT INTO BBS
+		(BBSCTT_NO, MBER_CODE, UP_BBSCTT_NO, BBSCTT_SJ, BBSCTT_CN, BBSCTT_DT)
+		VALUES(#{bbscttNo}, #{mberCode}, #{upBbscttNo}, #{bbscttSj}, #{bbscttCn}, SYSDATE)
+	</insert>
+ 
+	<delete id="deleteBbsctt" parameterType="String">
+		DELETE FROM BBS WHERE BBSCTT_NO = #{bbscttNo}
+	</delete>
+  	
+  	<delete id="deleteBbscttComent" parameterType="String">
+  		DELETE FROM BBS WHERE UP_BBSCTT_NO = #{upBbscttNo}
+  	</delete>
+  	
+  	<delete id="deleteComent" parameterType="map">
+  		DELETE FROM BBS WHERE UP_BBSCTT_NO = ${upBbscttNo} AND BBSCTT_NO = ${bbscttNo}
+  	</delete>
+  	
+</mapper>
+
+
+

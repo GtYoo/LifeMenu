@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ver.1.0.1 -->
+
+<mapper namespace="com.lifemenu.admin.dao.qebc.IVochrMngrDaoQebc">
+	
+	<resultMap type="vochrMngrDto" id="vochrMap">
+	 	<id column="VOCHR_CODE" property="vochrCode" />
+	 	<result column="MBER_CODE" property="mberCode"/>
+	 	<result column="VOCHR_PRICE" property="vochrPrice"/>
+	 	<result column="MEAL_PREARNGE_DT" property="mealPrearngeDt"/>
+	 	<result column="VOCHR_REGIST_DT" property="vochrRegistDt"/>
+	 	<result column="MEAL_TIME" property="mealTime"/>
+	 	<result column="DELNG_AT" property="delngAt"/>
+		<result column="MBER_NCNM" property="mberNcnm"/>
+		<result column="MBER_RLNM" property="mberRlnm"/>
+		<result column="MBER_EMAIL" property="mberEmail"/>
+		<result column="MBER_TEL" property="mberTel"/>
+		<result column="BANK_CODE" property="bankCode"/>
+		<result column="CODE_NM" property="codeNm"/>
+		<result column="MBER_ACOUNT_NO" property="mberAcountNo"/>
+	</resultMap>
+	
+	<select id="selectMultiVochrByCondition" parameterType="conditionParamVo" resultMap="vochrMap">
+		<![CDATA[
+		SELECT 	*
+ 		FROM 	( SELECT 	ROWNUM 	RNUM
+ 		 				  , O.* 
+ 		 		  FROM 	  ( SELECT 	V.* 
+ 		 		   				  , MBER_NCNM
+ 		 		   				  , MBER_RLNM
+ 		 		   				  , MBER_EMAIL
+ 		 		   				  , MBER_TEL
+ 		 		   				  , BANK_CODE
+ 		 		   				  , CODE_NM
+ 		 		   				  , MBER_ACOUNT_NO
+ 		 		  			FROM 	VOCHR 		V
+ 		 		  			 	  , MBER 		M
+ 		 		  			 	  , CMMN_CODE 	C
+ 		 		  			WHERE 	V.MBER_CODE = M.MBER_CODE
+ 		 		  			AND 	${conditionType} = #{condition}
+ 		 		  			AND 	M.BANK_CODE = C.CMMN_CODE(+)
+ 		 		  			ORDER 	BY VOCHR_CODE 
+ 		 		  		  )	O
+ 		 		) 
+ 		WHERE 	RNUM 	>= #{start}
+ 		AND 	ROWNUM 	<= #{cnt}
+ 		]]>
+	</select>
+	
+	<select id="selectOneVochrMngr" parameterType="String" resultMap="vochrMap">
+		<![CDATA[
+		SELECT 	V.* 
+ 			  , MBER_NCNM
+ 			  , MBER_RLNM
+ 			  , MBER_EMAIL
+ 			  , MBER_TEL
+ 			  , BANK_CODE
+ 			  , CODE_NM
+ 			  , MBER_ACOUNT_NO
+ 		FROM 	VOCHR 		V
+ 			  , MBER 		M
+ 		 	  , CMMN_CODE 	C
+ 		WHERE 	V.MBER_CODE = M.MBER_CODE
+ 		AND 	M.BANK_CODE = C.CMMN_CODE(+)
+ 		AND 	V.VOCHR_CODE = #{vochrCode}
+ 		ORDER 	BY VOCHR_CODE 
+ 		]]>
+	</select>
+	
+	<resultMap type="setleMngrDto" id="setleMap">
+	 	<id column="SETLE_CODE" property="setleCode" />
+	 	<result column="MBER_CODE" property="mberCode"/>
+	 	<result column="VOCHR_CODE" property="vochrCode"/>
+	 	<result column="SETLE_PC" property="setlePc"/>
+	 	<result column="SETLE_DT" property="setleDt"/>
+	 	<result column="SETLE_AT" property="setleAt"/>
+	 	<result column="REFND_REQST_AT" property="refndReqstAt"/>
+	 	<result column="PURCHS_DCSN_AT" property="purchsDcsnAt"/>
+		<result column="MBER_NCNM" property="mberNcnm"/>
+		<result column="MBER_RLNM" property="mberRlnm"/>
+		<result column="MBER_EMAIL" property="mberEmail"/>
+		<result column="MBER_TEL" property="mberTel"/>
+		<result column="BANK_CODE" property="bankCode"/>
+		<result column="CODE_NM" property="codeNm"/>
+		<result column="MBER_ACOUNT_NO" property="mberAcountNo"/>
+		<result column="ROWNUM" property="currentNo"/>
+	</resultMap>
+	
+	<select id="selectOneSetle" resultMap="setleMap">
+		SELECT 		S.*
+ 			 	  , MBER_NCNM
+ 			 	  , MBER_RLNM
+ 			 	  , MBER_EMAIL
+ 			 	  , MBER_TEL
+ 			 	  , BANK_CODE
+ 			 	  , CODE_NM
+ 			 	  , MBER_ACOUNT_NO
+ 			 	  , ROWNUM
+		FROM	 	SETLE     S
+			 	  , VOCHR     V
+			 	  , MBER      M
+			 	  , CMMN_CODE C
+		WHERE 		S.VOCHR_CODE = V.VOCHR_CODE
+		AND 		V.VOCHR_CODE = #{vochrCode}
+		AND 		M.MBER_CODE = S.MBER_CODE
+		AND     	M.BANK_CODE = C.CMMN_CODE(+)
+		AND 		ROWNUM = #{currentNo}
+		ORDER BY 	SETLE_DT 	DESC
+	</select>
+	
+	<select id="selectVochrMngrByConditionTotalCount" parameterType="conditionParamVo" resultType="int">
+		SELECT 	COUNT(*) CNT
+		FROM 	VOCHR V
+		 	  , MBER  M
+		WHERE 	${conditionType} LIKE #{condition}
+		AND 	M.MBER_CODE = V.MBER_CODE
+	</select>
+	
+	<!-- 식사권 상세 조회 시 결제 건수-->
+	<select id="selectSetleByConditionTotalCount" parameterType="String" resultType="int">
+		SELECT 	COUNT(*) TOTAL_CNT
+		FROM 	SETLE S
+			  , VOCHR V
+		WHERE 	S.VOCHR_CODE = V.VOCHR_CODE
+		AND 	V.VOCHR_CODE = #{vochrCode}
+	</select>
+	
+</mapper>

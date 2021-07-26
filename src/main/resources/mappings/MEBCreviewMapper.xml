@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.IReviewDaoMebc">
+<!-- resultType:sqlmapConfig.xml에서 알리아스설정으로 간단히씀 -->
+
+	<resultMap id="reviewResult" type="reviewDto">
+		<result property="setleCode" column="SETLE_CODE"/>
+		<result property="mberCode" column="MBER_CODE"/>
+		<result property="reviewCn" column="REVIEW_CN"/>
+		<result property="reviewDate" column="REVIEW_DATE"/>
+	</resultMap>
+	
+	<select id="selectOneReview" resultMap="reviewResult">
+		SELECT * FROM REVIEW WHERE SETLE_CODE = #{setleCode}
+	</select>
+	
+	<insert id="insertReview" parameterType="reviewDto">
+		INSERT INTO REVIEW
+		(
+			SETLE_CODE
+		,	MBER_CODE
+		,	REVIEW_CN
+		,	REVIEW_DATE
+		)
+		VALUES
+		(
+			#{setleCode}
+		,	#{mberCode}
+		,	#{reviewCn}
+		,	SYSDATE
+		)
+	</insert>
+
+	<update id="updateReview" parameterType="reviewDto">
+		UPDATE REVIEW SET
+		REVIEW_CN = #{reviewCn}
+		WHERE SETLE_CODE = #{setleCode}
+	</update>
+	
+	<delete id="deleteReview">
+		DELETE FROM REVIEW
+		WHERE  SETLE_CODE = #{setleCode}
+	</delete>
+		
+ 
+</mapper>
+
+
+
+
+

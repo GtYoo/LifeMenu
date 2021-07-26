@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ver.1.0.0 -->
+
+<mapper namespace="com.lifemenu.admin.dao.mebc.IBbsMngrDaoMebc">
+	
+	<select id="selectOneBbsMngr" resultType="bbscttDto">
+		SELECT 	* 
+		FROM 	BBS
+		WHERE 	BBSCTT_NO = #{ bbscttNo }
+	</select>
+	
+	<insert id="insertBbsMngr" parameterType="bbscttDto">
+		INSERT INTO BBS ( 
+		 	BBSCTT_NO , MBER_CODE , UP_BBSCTT_NO 
+		  , BBSCTT_NO , BBSCTT_CN , BBSCTT_DT 
+		)
+		VALUES ( 
+		 	#{ bbscttNo } 
+		  , #{ mberCode } 
+		  , NULL
+		  , #{ bbscttSj }
+		  , #{ bbscttCn }
+		  , SYSDATE 
+		)
+	</insert>
+	
+	<update id="updateBbsMngr">
+	 	UPDATE BBS
+	 	SET 
+	 	 	UP_BBSCTT_NO = #{ upBbscttNo }
+	 	  , BBSCTT_SJ = #{ bbscttSj }
+	 	  , BBSCTT_CN = #{ bbscttCn }
+	</update>
+	
+	<delete id="deleteBbsMngr">
+	 	DELETE FROM BBS
+	 	WHERE 		BBSCTT_NO = #{ bbscttNo }
+	</delete>
+	
+</mapper>

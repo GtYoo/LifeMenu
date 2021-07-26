@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.IWalletDaoQebc">
+	
+	<select id="selectMultiWalletDtls" resultType="WalletDtlsDto"  parameterType="String">	<!-- 회원코드로 단건조회 -->
+		SELECT * FROM WALLET_DTLS WHERE mber_Code = #{mberCode}
+	</select>
+
+
+
+</mapper>

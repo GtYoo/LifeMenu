@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lifemenu.dao.qebc.ILoginAfterDaoQebc">
+	
+	
+	<!-- 상은 -->
+	<select id="selectMultiMyTransaction" resultType="transactionListDto">
+		SELECT M1.MBER_RLNM AS "buyMberRlnm"
+			 , S.SETLE_CODE AS "setleCode"
+			 , S.VOCHR_CODE AS "setleVochrCode"
+			 , S.SETLE_PC AS "setlePc"
+			 , S.SETLE_AT AS "setleAt"
+			 , V.MEAL_PREARNGE_DT AS "mealPrearngeDt"
+			 , V.MEAL_TIME AS "mealTime"
+			 , V.MBER_CODE AS "selerMberCode"
+			 , M2.MBER_RLNM AS "selerMberRlnm"
+			 , SL.SELER_APRSM AS "selerAprsm"
+			 , S.PURCHS_DCSN_AT AS "purchsDcsnAt"
+			 , S.REFND_REQST_AT AS "refndReqstAt"
+		FROM   VOCHR V
+			 , SETLE S
+			 , MBER M1
+			 , MBER M2
+			 , SELER SL
+		WHERE 1=1
+		AND	   S.MBER_CODE = #{mberCode}
+		AND    M1.MBER_CODE = S.MBER_CODE
+		AND    V.VOCHR_CODE = S.VOCHR_CODE
+		AND    M2.MBER_CODE = V.MBER_CODE
+		AND    SL.MBER_CODE = V.MBER_CODE
+		ORDER BY S.SETLE_CODE
+	</select>
+	
+	<select id="selectMultiMySellList" resultType="transactionListDto">
+		SELECT M1.MBER_RLNM AS "buyMberRlnm"
+			 , S.SETLE_CODE AS "setleCode"
+			 , S.VOCHR_CODE AS "setleVochrCode"
+			 , S.SETLE_PC AS "setlePc"
+			 , S.SETLE_AT AS "setleAt"
+			 , V.MEAL_PREARNGE_DT AS "mealPrearngeDt"
+			 , V.MEAL_TIME AS "mealTime"
+			 , V.MBER_CODE AS "selerMberCode"
+			 , M2.MBER_RLNM AS "selerMberRlnm"
+			 , SL.SELER_APRSM AS "selerAprsm"
+			 , S.PURCHS_DCSN_AT AS "purchsDcsnAt"
+			 , S.REFND_REQST_AT AS "refndReqstAt"
+		FROM   VOCHR V
+			 , SETLE S
+			 , MBER M1
+			 , MBER M2
+			 , SELER SL
+		WHERE 1=1
+		AND	   V.MBER_CODE = #{mberCode}
+		AND    M1.MBER_CODE = S.MBER_CODE
+		AND    V.VOCHR_CODE = S.VOCHR_CODE
+		AND    M2.MBER_CODE = V.MBER_CODE
+		AND    SL.MBER_CODE = V.MBER_CODE
+		ORDER BY S.SETLE_CODE
+	</select>
+	
+</mapper>

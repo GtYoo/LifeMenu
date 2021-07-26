@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.ISetleDaoQebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	
+	<select id="selectOneVoucher" resultType="voucherDto">
+		SELECT * FROM VOCHR WHERE MBER_CODE = #{mberCode}
+	</select>
+	
+	<select id="selectOneMberWalletCoin" resultType="int">
+		SELECT COIN_CO FROM MBER M, WALLET W 
+		WHERE M.MBER_CODE = W.MBER_CODE AND W.MBER_CODE = #{mberCode}
+	</select>
+	
+	<update id="updateMberCoin" parameterType="walletDto">
+		UPDATE WALLET SET 
+		COIN_CO = #{coinCo}
+		WHERE MBER_CODE = #{mberCode}
+	</update>
+	
+	<update id="updateVoucherDelngAt" parameterType="voucherDto">
+		UPDATE VOCHR SET 
+		DELNG_AT = 'N'
+		WHERE VOCHR_CODE = #{vochrCode}
+	</update>
+	<!-- 7월13일 -->
+	<select id="selectMaxSetleCode" resultType="String">
+		SELECT SETLE_CODE FROM (SELECT SETLE_CODE FROM SETLE ORDER BY SETLE_CODE DESC) WHERE ROWNUM = 1
+	</select>
+	
+	<select id="selectSelerCode" resultType="String">
+		SELECT V.MBER_CODE FROM SETLE S, VOCHR V WHERE S.VOCHR_CODE = V.VOCHR_CODE
+		AND SETLE_CODE = #{setleCode}
+	</select>
+
+</mapper>

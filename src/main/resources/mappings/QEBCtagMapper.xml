@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.admin.dao.qebc.ITagDaoQebc">
+
+	<resultMap id="tagResult" type="tagDto">
+		<result property="tagCode" column="TAG_CODE"/>
+		<result property="tagNm" column="TAG_NM"/>
+		<result property="imageAdres" column="IMAGE_ADRES"/>
+	</resultMap>
+	
+	<select id="selectMaxCode" resultType="String" >
+		SELECT MAX(TO_NUMBER(TAG_CODE)) FROM TAG
+	</select>
+	
+	<select id="selectTagCodeByName" resultType="String">
+		SELECT TAG_CODE FROM TAG WHERE TAG_NM = #{tagNm}
+	</select>
+	
+	<select id="selectMultiTag" resultMap="tagResult">
+		SELECT * FROM TAG ORDER BY TAG_CODE
+	</select>
+	
+	<select id="selectMultiTagSearch" resultType="String">
+		SELECT TAG_CODE FROM TAG_SEARCH WHERE MBER_CODE = #{mberCode}
+	</select>
+	
+	<select id="selectMultiTagName" resultType="String">
+		SELECT TAG_NM FROM TAG ORDER BY TAG_CODE
+	</select>
+
+</mapper>

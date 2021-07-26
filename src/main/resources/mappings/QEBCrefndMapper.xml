@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.IRefndDaoQebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+
+	<select id="selectMultiRefndAtList" resultType="refndDto">
+		SELECT * FROM REFND WHERE REFND_AT = 'N'
+	</select>
+	
+	<select id="selectMultiRefndAllList" resultType="refndDto">
+		SELECT * FROM REFND ORDER BY SETLE_CODE
+	</select>
+	
+	<update id="updateVoucherDelngAt" parameterType="voucherDto">
+		UPDATE VOCHR SET 
+		DELNG_AT = 'Y'
+		WHERE VOCHR_CODE = #{vochrCode}
+	</update>
+	
+	<update id="updateRefndAt">
+		UPDATE REFND SET REFND_PC = #{refndPc}, REFND_DT = #{refndDt}, 
+		REFND_AT = 'I', REFND_RESN = #{refndResn}
+		WHERE SETLE_CODE = #{setleCode}
+	</update>
+</mapper>

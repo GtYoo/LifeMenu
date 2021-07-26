@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lifemenu.dao.qebc.INoticeDaoQebc">
+	
+	
+
+	
+	<select id="selectMultiNotice" parameterType="String" resultType="noticeDto">
+		<!--  -->select * from NOTICE ORDER BY BBSCTT_NO DESC
+	</select>
+	
+	<select id="selectNoticeTotalCount" resultType="int">
+	 	SELECT 	COUNT(*) CNT
+	 	FROM 	NOTICE
+	</select>
+	
+	<select id="selectNextBbscttNo" resultType="int">
+	 	SELECT 	( MAX(BBSCTT_NO) + 1 ) NEXT
+	 	FROM 	NOTICE
+	</select>
+	
+</mapper>

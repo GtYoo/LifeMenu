@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lifemenu.dao.mebc.IVoucherDaoMebc">
+
+	<resultMap id="voucherResult" type="voucherDto">
+		<result property="vochrCode" column="VOCHR_CODE"/>
+		<result property="mberCode" column="MBER_CODE"/>
+		<result property="vochrPrice" column="VOCHR_PRICE"/>
+		<result property="mealPrearngeDt" column="MEAL_PREARNGE_DT"/>
+		<result property="vochrRegistDt" column="VOCHR_REGIST_dT"/>
+		<result property="mealTime" column="MEAL_TIME"/>
+		<result property="delngAt" column="DELNG_AT"/>
+	</resultMap>
+	
+	<select id="selectOneVoucher" resultMap="voucherResult">
+		SELECT * FROM VOCHR WHERE VOCHR_CODE = #{vochrCode}
+	</select>
+	
+	<insert id="insertVoucher" parameterType="voucherDto">
+		INSERT INTO VOCHR
+		(
+			VOCHR_CODE
+		,	MBER_CODE
+		,	VOCHR_PRICE
+		,	MEAL_PREARNGE_DT
+		,	VOCHR_REGIST_DT
+		,	MEAL_TIME
+		,	DELNG_AT
+		)
+		VALUES
+		(
+			#{vochrCode}
+		,	#{mberCode}
+		,	#{vochrPrice}
+		,	#{mealPrearngeDt}
+		,	SYSDATE
+		,	#{mealTime}
+		,	#{delngAt}
+		)
+	</insert>
+	
+	<update id="updateVoucher" parameterType="voucherDto">
+		UPDATE VOCHR SET
+		DELNG_AT = #{delngAt}
+		WHERE VOCHR_CODE = #{vochrCode}
+	</update>
+	
+	<delete id="deleteVoucher">
+		DELETE FROM VOCHR WHERE VOCHR_CODE = #{vochrCode}
+	</delete>
+	
+</mapper>

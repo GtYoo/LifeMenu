@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.IInqryDaoQebc">
+	<resultMap type="inqryDto" id="inqryMap">
+	        <id column="MNGR_INQRY_NO" property="mngrInqryNo" />
+	        <result column="MBER_CODE" property="mberCode" />
+	        <result column="INQRY_SJ" property="inqrySj" />
+	        <result column="INQRY_CN" property="inqryCn" />
+	        <result column="INQRY_DT" property="inqryDt" />
+	</resultMap>
+	
+	<select id="selectMultiInqry" parameterType="pageParamVo" resultMap="inqryMap">
+		<![CDATA[
+		SELECT 	*
+ 		FROM 	( SELECT 	ROWNUM 	RNUM
+ 		 				  , O.* 
+ 		 		  FROM 	  ( SELECT 	N.* 
+ 		 		   				  , MBER_NCNM 
+ 		 		  			FROM 	MNGR_INQRY 	N 
+ 		 		  			 	  , MBER 	M 
+ 		 		  			WHERE 	N.MBER_CODE = M.MBER_CODE 
+ 		 		  			AND 	MNGR_ANSWER_NO IS NULL
+ 		 		  			ORDER 	BY MNGR_INQRY_NO DESC 
+ 		 		  		  )	O
+ 		 		)
+ 		WHERE 	RNUM 	>= #{ start }
+ 		AND 	ROWNUM 	<= #{ cnt }
+ 		]]>
+	</select>
+	
+	<select id="selectBbsTotalCount" resultType="int">
+	 	SELECT 	COUNT(*) NEXT
+	 	FROM 	MNGR_INQRY
+	</select>
+	
+	<select id="selectOneInqryNoRownum" resultType="inqryDto">
+		SELECT * FROM (SELECT * FROM MNGR_INQRY ORDER BY MNGR_INQRY_NO DESC) WHERE ROWNUM = 1
+	</select>
+	
+	<select id="selectMultiComent" parameterType="String" resultType="inqryDto">
+		SELECT * FROM MNGR_INQRY WHERE MNGR_ANSWER_NO = #{mngrAnswerNo}
+	</select>
+	
+	<select id="selectComentCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) NEXT
+		FROM MNGR_INQRY
+		WHERE MNGR_ANSWER_NO = #{mngrAnswerNo}
+	</select>
+	
+</mapper>
+
+
+

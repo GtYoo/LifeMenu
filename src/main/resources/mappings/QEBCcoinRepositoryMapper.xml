@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.qebc.ICoinRepositoryDaoQebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	<select id="selectMultiCoinRepository" resultType="coinRepositoryDto">
+		SELECT * FROM COIN_REPOSITORY
+	</select>
+	
+	<select id="selectOneCoinRepositoryCoin" resultType="int">
+		SELECT REPOSITORY_COIN_CO FROM 
+		(SELECT REPOSITORY_COIN_CO FROM COIN_REPOSITORY ORDER BY DELNG_CODE DESC) 
+		WHERE ROWNUM = 1
+	</select>
+	
+	<select id="selectOneRepositoryDtlsRownum" resultType="coinRepositoryDto">
+		SELECT * FROM (SELECT * FROM COIN_REPOSITORY ORDER BY DELNG_CODE DESC) WHERE ROWNUM = 1
+	</select>
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.IRefndDaoMebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	
+	<select id="selectOneRefnd" resultType="refndDto">
+		SELECT * FROM REFND WHERE SETLE_CODE = #{refndCode}
+	</select>
+	
+	<insert id="insertRefnd">
+		INSERT INTO REFND
+		(SETLE_CODE, REFND_PC, REFND_DT, REFND_AT, REFND_RESN)
+		VALUES(#{setleCode}, #{refndPc}, SYSDATE, 'N', #{refndResn})
+	</insert>
+	
+	<update id="updateRefnd">
+		UPDATE REFND SET REFND_PC = #{refndPc}, REFND_DT = #{refndDt}, 
+		REFND_AT = 'Y', REFND_RESN = #{refndResn}
+		WHERE SETLE_CODE = #{setleCode}
+	</update>
+
+</mapper>

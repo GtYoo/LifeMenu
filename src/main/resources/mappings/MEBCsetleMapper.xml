@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 수정요망 -->
+<mapper namespace="com.lifemenu.dao.mebc.ISetleDaoMebc">
+	<!-- 
+	<resultMap type="#modelname" id="YourResultSet">
+		<id property="param1" column="columnname1" />
+		<result property="param2" column="columnname2" />
+		<result property="param3" column="columnname3" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="YourResultSet">
+		SELECT * FROM tablename1
+	</select>
+	-->
+	<select id="selectOneSetle" resultType="setleDto">
+		SELECT * FROM SETLE WHERE SETLE_CODE = #{setleCode}
+	</select>
+
+	<insert id="insertSetle">
+		INSERT INTO SETLE
+		(SETLE_CODE,MBER_CODE,VOCHR_CODE,SETLE_PC,SETLE_DT,SETLE_AT,REFND_REQST_AT,PURCHS_DCSN_AT)
+		VALUES(#{setleCode}, #{mberCode}, #{vochrCode}, #{setlePc}, SYSDATE, 'Y', 'N', 'N')
+	</insert>
+	
+	<update id="updatePurchsDcsn">
+		UPDATE SETLE SET SETLE_PC = #{setlePc}, SETLE_DT = #{setleDt}, 
+		SETLE_AT = #{setleAt}, REFND_REQST_AT = #{refndReqstAt}, 
+		PURCHS_DCSN_AT = #{purchsDcsnAt} WHERE SETLE_CODE = #{setleCode}
+	</update>
+	
+	<update id="updateRefndReqst">
+		UPDATE SETLE SET SETLE_PC = #{setlePc}, SETLE_DT = #{setleDt}, 
+		SETLE_AT = #{setleAt}, REFND_REQST_AT = 'Y', 
+		PURCHS_DCSN_AT = #{purchsDcsnAt} WHERE SETLE_CODE = #{setleCode}
+	</update>
+	
+	<delete id="deleteSetle">
+		DELETE FROM SETLE WHERE SETLE_CODE = #{setleCode}
+	</delete>
+
+</mapper>

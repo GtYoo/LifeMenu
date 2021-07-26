@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ver.1.0.0. -->
+
+<mapper namespace="com.lifemenu.admin.dao.mebc.IMngrInqryDaoMebc">
+	
+	<select id="selectOneMngrInqry" parameterType="String" resultType="mngrInqryDto">
+		SELECT 	*
+		FROM 	MNGR_INQRY MNGR
+		WHERE 	MNGR_INQRY_NO = #{ mngrInqryNo }
+	</select>
+	
+	<insert id="insertMngrInqry" parameterType="mngrInqryDto">
+		INSERT INTO MNGR_INQRY 
+		( MNGR_INQRY_NO , MBER_CODE , MNGR_ANSWER_NO 
+		, INQRY_SJ , INQRY_CN , INQRY_DT )
+		VALUES 
+		( #{ mngrInqryNo } , #{ mberCode } , NULL 
+		, #{ inqrySj } , #{ inqryCn } , SYSDATE )
+	</insert>
+	
+	<update id="updateMngrInqry" parameterType="mngrInqryDto">
+		UPDATE  MNGR_INQRY
+		SET 	INQRY_SJ 		= #{ inqrySj }
+		 	  , INQRY_CN 		= #{ inqryCn }
+		 	  , MNGR_ANSWER_NO 	= #{ mngrAnswerNo }
+		WHERE 	MNGR_INQRY_NO 	= #{ mngrInqryNo }
+	</update>
+	
+	<delete id="deleteMngrInqry">
+		DELETE FROM MNGR_INQRY
+		WHERE 		MNGR_INQRY_NO = #{ mngrInqryNo }
+	</delete>
+	
+</mapper>
