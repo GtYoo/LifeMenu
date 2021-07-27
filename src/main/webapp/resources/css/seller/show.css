@@ -1,0 +1,250 @@
+@charset "UTF-8";
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sellerImg:nth-of-type(1) {
+	border-radius: 0px;
+    width: 500px;
+    height: 350px;
+    object-fit: contain;
+    box-shadow: none;
+}
+
+.sellerImg {
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	margin: 5px;
+	box-shadow: 2px 2px 5px #999;
+}
+
+#content_container {
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	overflow: hidden;
+	height: 630px;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+#content_container::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+
+#image_container {
+	grid-row: 1/2;
+    width: 547px;
+    height: 572px;
+    margin-left: 54px;
+    margin-top: 40px;
+    margin-bottom: 37px;
+}
+
+#detail_container {
+	grid-row: 1/2;
+    margin-top: 15px;
+    margin-right: 54px;
+    width: 473px;
+}
+
+#history_container {
+	grid-row: 2/3;
+    height: 600px;
+    margin: 30px;
+    margin-top: 33px;
+    width: 573px;
+}
+
+#review_container {
+	border: 0px;
+    border-radius: 3px;
+    overflow: auto;
+    width: 274px;
+    height: 500px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    margin-top: 33px;
+    margin-left: 123px;
+    box-shadow: 2px 2px 5px #999;
+}
+
+#review_container::-webkit-scrollbar {
+	width: 5px;
+}
+
+#review_container::-webkit-scrollbar-thumb {
+	background-color: lightgray;
+	border-radius: 100px;
+}
+
+#review_container::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+#aprsm {
+	text-align: left;
+	font-size: 15px;
+}
+
+#reserve_btn {
+	position: relative;
+	top: 110px;
+    right: -2px;
+	width: 460px;
+	height: 70px;
+	box-shadow: 2px 2px 5px #999;
+	font-size: 30px;
+    font-weight: bold;
+	cursor: pointer;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 20px;
+	background: black;
+	color: #fff;
+}
+
+#reserve_btn:hover {
+	background: #fff;
+	color: black;
+}
+
+.scroll {
+	position: absolute;
+	left: 551px;
+    font-size: 50px;
+    bottom: 49px;
+	cursor: pointer;
+	color: white;
+	background: black;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.tagImg {
+	width: 75px;
+	height: 75px;
+}
+
+#resdnc {
+	text-align: right;
+    position: relative;
+    right: 30px;
+    top: 9px;
+}
+
+.img-with-text {
+	display: flex;
+    position: relative;
+    top: 28px;
+}
+
+.img-with-text table tr td {
+	padding: 0px;
+}
+
+.img-with-text table {
+	margin-right: 20px;
+}
+
+.img-with-text p {
+	margin: 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.review_box {
+	border-bottom: 1px solid gray;
+    width: 267px;
+    height: 121px;
+}
+
+h2 {
+	margin: 0px;
+	text-align: center;
+}
+
+#career {
+	position: relative;
+    width: 356px;
+    height: 200px;
+    border: 0px;
+    top: 43px;
+    left: 28px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px #999;
+    overflow: auto;
+}
+
+#career_btn {
+	position: relative;
+    top: 42px;
+    left: 28px;
+}
+
+#age_group_chart {
+	position: relative;
+    bottom: 235px;
+    left: 411px;
+}
+
+#ageh3 {
+	position: relative;
+    left: 452px;
+    bottom: 222px;
+    margin: 0px;
+}
+
+#chart_div {
+	position: relative;
+    top: 22px;
+    left: 13px;
+}
+
+#priceh3 {
+	position: relative;
+    left: 45px;
+    top: 1px;
+    margin: 0px;
+}
+
+#didntsold {
+	position: relative;
+    left: 45px;
+    top: 95px;
+}
+
+.cBtns {
+	margin: -2px;
+    width: 94px;
+    height: 25px;
+    border: 0px;
+    background-color: lightgray;
+    color: white;
+    font-size: 15px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#topDetail {
+	margin-bottom: 0px;
+	font-size: 28px;
+}
+
+#selfIntroduction {
+	display: inline-block;
+    position: relative;
+    top: 73px;
+    height: 228px;
+    width: 465px;
+}
+
+#aprsm h1 {
+	margin: 0px;
+	font-size: 27px;
+	width: 500px;
+}

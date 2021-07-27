@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.content_container{
+	display: flex;
+    justify-content: center;
+}
+.box-wrap{
+	display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.refndListBtn{
+	margin-bottom: 15px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+.tr-1{
+	background-color: antiquewhite;
+}
+.title{
+	font-size: 25px;
+	font-weight: bold;
+}
+.allList{
+	margin-right: 15px;
+}

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.row{
+	margin-top: 45px;
+}
+.container{
+	justify-content: center;
+    display: flex;
+}
+.b-sj{
+	width: 700px;
+}
+.b-cn{
+	resize: none;
+	height: 300px;
+	width: 700px;
+}
+.btn-1{
+	margin-left: 500px;
+    margin-top: 20px;
+}
+.btn-1, .btn-2{
+	width: 100px;
+}

@@ -1,0 +1,163 @@
+/*예약 페이지*/
+#content{
+    display: flex;
+    justify-content: center;
+}
+.vochrResve{
+    display: flex;
+    flex-direction: column;
+}
+.vochrInfo{
+    width: 900px;
+    height: 250px;
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.resveTime{
+    width: 900px;
+    height: 250px;
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+}
+.resveHeader{
+    display: flex;
+    align-items: center;
+}
+.resveTitle{
+    margin-left: 10px;
+}
+.vi{
+    display: flex;
+    align-items: center;
+}
+.vi-1{
+    padding: 10px;
+    margin-left: 100px;
+}
+.vi-2{
+    flex-grow: 1;
+    padding: 10px;
+    margin-left: 30px;
+    height: 200px;
+    overflow: auto;
+    margin-right: 10px;
+}
+.resve_selerImage{
+    width: 310px;
+    height: 210px;
+    overflow: hidden;
+}
+.resve_selerImage img{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.resveButton{
+    align-self: center;
+    position: absolute;
+    right: 170px;
+    bottom: 130px;
+}
+.resveButton button{
+    width: 130px;
+    height: 40px;
+}
+.custom-btn-resve{
+	border: 2px solid;
+	border-color: black;
+	border-radius: 3px;
+	background: black;
+	color: #fff;
+}
+.custom-btn-resve:hover{
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+}
+.custom-btn-resve:hover span{
+	font-color: white;
+}
+.rt{
+    margin-right: 50px;
+    margin-top: 10px;
+}
+.resve_selerAprsm{
+    margin-bottom: 20px;
+}
+.resve_selerAprsm span{
+	font-size: 23px;
+    font-weight: 1000;
+}
+.vi-2-text{
+	font-weight: bold;
+}
+.rt i{
+	margin-right: 15px;
+}
+.resve_vochrPc{
+	width: 400px;
+	border: 1px solid;
+    padding: 5px;
+    border-bottom: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+}
+.resve_MealDt{
+	width: 400px;
+	border: 1px solid;
+    padding: 5px;
+    display: flex;
+    border-top-style: dotted;
+	border-bottom-style: dotted;
+}
+.resve_delngAt{
+	width: 400px;
+	border: 1px solid;
+    padding: 5px;
+    border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+}
+.rtbar{
+	width: 40px;
+	border-right: 1px solid;
+}
+.resve_vochrPc .rtbar{
+	width: 56px;
+}
+.rt-text-1, .rt-text-2, .rt-text-3{
+	margin-left: 15px;
+}
+.resve_selerName, .resve_selerSelf, .resve_selerCareer{
+	border: 1px solid;
+    padding: 5px;
+}
+.resve_selerName{
+	border-bottom: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.resve_selerCareer{
+	border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.resve_selerSelf{
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+}

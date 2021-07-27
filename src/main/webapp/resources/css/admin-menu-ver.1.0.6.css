@@ -1,0 +1,272 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.box-wrap {
+	dispaly: flex;
+	height: 85%;
+	flex-wrap:wrap;
+	justify-content: flex-start;
+	padding-top: 10px;
+}
+
+.box {
+	display: flex;
+	width: 100%;
+	height: 100%; 
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	height: 80px;
+}
+
+.search {
+	height: 80px;
+}
+
+.s_box {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+.combo {
+	min-width: 120px;
+}
+
+.search_text {
+	min-width: 50%;
+}
+
+.search_btn {
+	min-width: 80px;
+}
+.search_btn input:first-child{
+	width: 100px;
+}
+.search_option {
+	min-width: 120px;
+}
+.search_option input:first-child{
+	width: 100px;
+}
+.regist {
+	min-width: 80px;
+}
+
+.fileRegist {
+	display: flex;
+	flex-direction: row;
+}
+
+/* 데이터 출력 부분 */
+.list.box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow: auto;
+    justify-content: flex-start;
+}
+
+.l_box {
+	width: 95%;
+	height: 24px;
+	margin-top: 5px;
+	padding: 5px;
+	text-align: center;
+}
+
+.l_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.l_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 5px;
+}
+
+.l_row_hist {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 5px;
+	height: auto;
+}
+
+.page_no {
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.l_column {
+	width: 100px;
+}
+
+
+#filter_contents {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 260px;
+	left: 140px;
+	padding: 10px;
+	
+	border: 1px solid black;
+	background-color: #ff8080;
+}
+
+#insertTagForm {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	background-color: #c0c0c0;
+	height: 80px;
+}
+
+.f_box {
+	padding: 5px;
+}
+
+.pages {
+	padding: 5px;
+}
+
+
+/* 
+ * 컬럼들
+ * 
+ */
+
+/* 공통 */
+.etc {
+	min-width: 100px;
+}
+.etc2 {
+	min-width: 200px;
+}
+
+.no_data {
+	height: 100px;
+}
+
+/* 회원 관리 */
+.mberCode {
+	min-width: 100px;
+}
+.mberId {
+	min-width: 120px;
+}
+.mberPw {
+	min-width: 120px;
+}
+.mberRlnm {
+	min-width: 120px;
+}
+.bankCode {
+	min-width: 100px;
+}
+.mberAcountNo {
+	min-width: 260px;
+}
+.mberEmail {
+	min-width: 240px;
+}
+.mberNcnm {
+	min-width: 100px;
+}
+.mberTel {
+	min-width: 160px;
+}
+.mberBrthdy {
+	min-width: 100px;
+}
+.mberAuthorLevel {
+	min-width: 100px;
+}
+.srbde {
+	min-width: 100px;
+}
+.mberSecsnAt {
+	min-width: 100px;
+}
+
+/* 관리자 문의 */
+.mngrInqryNo {
+	min-width: 100px;
+}
+
+.inqrySj {
+	min-width: 220px;
+}
+
+.inqryDt {
+	min-width: 100px;
+}
+
+/* 공지사항 관리 */
+.bbscttNo {
+	min-width: 100px;
+}
+
+.bbscttSj {
+	min-width: 220px;
+}
+
+.bbscttDt {
+	min-width: 100px;
+}
+
+/* 태그 관리 */
+.tagCode {
+	min-width: 100px;
+}
+
+.tagNm{
+	min-width: 120px;
+}
+
+.imageAdres {
+	min-width: 240px;
+}
+
+.tagReadCnt {
+	min-width: 100px;
+}
+
+
+/* 식사권 관리 */
+.resveCode {
+	min-width: 100px;
+}
+.resvePc {
+	min-width: 120px;
+}
+.resveDt {
+	min-width: 100px;
+}
+.setlePc {
+	min-width: 120px;
+}
+.setleDt {
+	min-width: 100px;
+}
+.setleAt {
+	min-width: 100px;
+}
+.refndReqstAt {
+	min-width: 100px;
+}
+.purchsDcsnAt {
+	min-width: 100px;
+}

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+.box-wrap{
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.bbscttBox-i{
+	margin-top: 65px;
+}
+.bbscttBox-j{
+	margin-top: 15px;
+}
+.info_title{
+	padding-right: 15px;
+}
+.info_contents{
+	padding-right: 35px;
+}
+.bbscttBox-1{
+	border-bottom: 1px solid;
+}
+.b-cn-1{
+	width: 600px;
+    height: 250px;
+}
+.b-cn-2{
+	width: 600px;
+    height: 40px;
+}
+.comentBtn{
+	position: absolute;
+    right: 275px;
+}
+.comentBtn input{
+	margin-top: 6px;
+    width: 100px;
+}
+.btnBox{
+	position: absolute;
+    right: 275px;
+    bottom: 193px;
+}
+.otcComent{
+	align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 130px;
+    overflow: auto;
+    margin-top: 75px;
+}
+.coment-con{
+	display: grid;
+	grid-template-columns: 110px 2fr 1fr;
+	padding-bottom: 5px;
+}
+.coment-con span{
+	padding-right: 15px;
+}
+.bbscttBox-x{
+	margin-left: 343px;
+    margin-top: 15px;
+}
+.bbscttBox-x input{
+	width: 130px;
+}
+.dtotc{
+	display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.cb-1{
+	margin-top: 10px;
+}
+textarea{
+	resize: none;
+}
+.ct-2{
+	font-size: 13px;
+    margin-left: 5px;
+}

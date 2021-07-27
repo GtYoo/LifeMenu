@@ -1,0 +1,153 @@
+/*예약확인페이지*/
+.resveConfirm{
+    display: flex;
+    flex-direction: column;
+}
+.resveInfo{
+    width: 900px;
+    height: 450px;
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.ri{
+    display: flex;
+    justify-content: center;
+}
+.ri-1{
+	padding-left: 30px;
+}
+.setleButton{
+    position: absolute;
+    right: 290px;
+    bottom: 180px;
+}
+.setleButton button{
+    width: 130px;
+    height: 40px;
+    border: 2px solid;
+	border-color: black;
+	border-radius: 3px;
+	background: black;
+	color: #fff;
+}
+.setleButton button:hover{
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+	cursor: pointer;
+}
+.cancelButton{
+    position: absolute;
+    right: 150px;
+    bottom: 180px;
+}
+.cancelButton button{
+    width: 130px;
+    height: 40px;
+    border: 2px solid;
+	border-color: black;
+	border-radius: 3px;
+	background: black;
+	color: #fff;
+}
+.cancelButton button:hover{
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+	cursor: pointer;
+}
+.resve__selerImage{
+    width: 310px;
+    height: 210px;
+    overflow: hidden;
+}
+.resve__selerImage img{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.ri-text{
+	font-weight: bold;
+	padding-left: 10px;
+}
+.ri-title-1{
+	padding-right: 0px;
+}
+.ri-title-2{
+	padding-right: 0px;
+}
+.ri-title-3{
+	padding-right: 0px;
+}
+.ri-title-4{
+	padding-right: 0px;
+}
+.ri-title-5{
+	padding-right: 0px;
+}
+.ri-title-6{
+	padding-right: 0px;
+}
+.ri-title-7{
+	padding-right: 0px;
+}
+.ri-title-8{
+	padding-right: 0px;
+}
+.resve__selerName, .resve__vochrPc, .resve__vochrDt, .resve__mealTime,
+.resve__resveCode, .resve__mberName, .resve__mberId, .resve__resveDt{
+	display: flex;
+	border: 1px solid;
+	width: 400px;
+	padding: 5px;
+}
+.resve__selerName .rtbar, .resve__mealTime .rtbar{
+	margin-left: 48px;
+}
+.resve__resveCode .rtbar, .resve__resveDt .rtbar{
+	margin-left: 16px;
+}
+.resve__mberId .rtbar{
+	margin-left: 32px;
+}
+.resve__selerName{
+	border-bottom: 0px;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.resve__vochrDt, .resve__resveCode, .resve__mberId{
+	border-top: 0px;
+    border-bottom: 0px;
+}
+.resve__vochrPc, .resve__mealTime, .resve__mberName{
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+}
+.resve__resveDt{
+	border-top-style: dotted;
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.resve-msg{
+	position: absolute;
+    left: 210px;
+    top: 520px;
+	margin-top: 15px;
+}
+.rm-1{
+	font-size: 20px;
+	font-weight: bold;
+}
+.rm-2{
+	font-size: 14px;
+}

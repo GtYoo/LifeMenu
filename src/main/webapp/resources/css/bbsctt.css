@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.title-text{
+	margin-bottom: 10px;
+}
+.title-text .tt-1{
+	width: 200px;
+}
+.list{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+a:link .comentCnt{
+	color: blue;
+}
+.transactionTable{
+	height: 525px;
+}
+.writerBtn input{
+	width: 130px;
+}
+#view_pages{
+	margin-top: 10px;
+}
+.bbscn-2:link{
+	color: #25710A;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-size: 15px;
+}
+.tr-1{
+	background-color: lightgray;
+}
+.bst-sj, .bst-nc{
+	text-align: left;
+}

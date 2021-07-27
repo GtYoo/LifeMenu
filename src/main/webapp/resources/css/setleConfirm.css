@@ -1,0 +1,77 @@
+
+.setle__selerImage{
+    width: 310px;
+    height: 210px;
+    overflow: hidden;
+}
+.setle__selerImage img{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.setleConfirmButton{
+    padding-top: 20px;
+	position: absolute;
+    bottom: 200px;
+    right: 180px;
+}
+.setleConfirmButton button{
+    width: 150px;
+    height: 30px;
+    border: 2px solid;
+	border-color: black;
+	border-radius: 3px;
+	background: black;
+	color: #fff;
+}
+.setleConfirmButton button:hover{
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+}
+.setle__selerName, .setle__setleCode, .setle__vochrPc,
+.setle__vochrDt, .setle__resveDt{
+	display: flex;
+    border: 1px solid;
+    padding: 5px;
+    width: 370px;
+}
+.setle__selerName{
+	border-bottom: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.setle__setleCode, .setle__vochrDt{
+	border-top-style: dotted;
+    border-bottom-style: dotted;
+}
+.setle__vochrPc{
+	border-top: 0px;
+    border-bottom: 0px;
+}
+.setle__resveDt{
+	border-top: 0px;
+	border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.setle__selerName .rtbar{
+	padding-left: 48px;
+}
+.setle__setleCode .rtbar, .setle__vochrPc .rtbar, .setle__resveDt .rtbar{
+	padding-left: 16px;
+}
+.tt{
+	position: absolute;
+    top: 220px;
+    left: 220px;
+    font-size: 25px;
+}
+.ttt{
+	position: absolute;
+    top: 520px;
+    left: 220px;
+    font-size: 15px;
+}

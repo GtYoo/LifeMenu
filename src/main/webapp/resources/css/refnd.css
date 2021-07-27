@@ -1,0 +1,140 @@
+#content{
+    display: flex;
+    flex-direction: column;
+}
+.refndConfirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.refndInfo{
+    width: 900px;
+    height: 250px;
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.refndReqst{
+    width: 900px;
+    height: 200px;
+    border: 1px solid #d9d9d9;
+    border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+}
+.refndHeader{
+    display: flex;
+    align-items: center;
+    margin-left: 125px;
+}
+.refndTitle{
+    margin-left: 10px;
+}
+.rf{
+    display: flex;
+    align-items: center;
+}
+.rf-1{
+    flex-grow: 1;
+    padding: 10px;
+    margin-left: 100px;
+}
+.rf-2{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 50px;
+}
+.refnd__selerImage{
+    width: 310px;
+    height: 210px;
+    overflow: hidden;
+}
+.refnd__selerImage img{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.rfr{
+    display: flex;
+    flex-direction: column;
+	margin-top: 30px;
+}
+.rfr label{
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+.rfr select{
+    width: 300px;
+    height: 30px;
+}
+.directInput{
+    margin-top: 10px;
+    width: 292px;
+    height: 20px;
+}
+.refndButton{
+    position: absolute;
+    bottom: 170px;
+    right: 200px;
+}
+.refndButton button{
+    width: 100px;
+    height: 30px;
+    border: 2px solid;
+	border-color: black;
+	border-radius: 3px;
+	background: black;
+	color: #fff;
+}
+.refndButton button:hover{
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+}
+.rf-text{
+	font-weight: bold;
+	padding-left: 15px;
+}
+.rtbar{
+	border-right: 1px solid;
+	padding-left: 30px;
+}
+.refnd__selerName, .refnd__vochrPc, .refnd__vochrDt, .refnd__setleCode, .refnd__resveDt{
+	border: 1px solid;
+	display: flex;
+	padding: 5px;
+}
+.refnd__selerName{
+	border-bottom: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.refnd__vochrDt{
+	border-top: 0px;
+    border-bottom: 0px;
+}
+.refnd__resveDt{
+	border-top: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.refnd__selerName .rtbar{
+	padding-left: 75px;
+}
+.refnd__vochrPc .rtbar, .refnd__setleCode .rtbar, .refnd__resveDt .rtbar{
+	padding-left: 45px;
+}
+.refnd__vochrPc, .refnd__setleCode{
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+}

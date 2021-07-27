@@ -1,0 +1,249 @@
+@charset "UTF-8";
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+	margin: 0px auto;
+	text-align: center;
+}
+
+#content_container {
+	padding: 14px;
+	height: 641px;
+}
+
+.slider {
+	width: 477px;
+    height: 246px;
+    position: relative;
+    left: 107px;
+    top: 13px;
+}
+
+.bullets {
+    transform: translateX(-50%);
+    z-index: 2;
+    position: relative;
+    left: 404px;
+    top: 220px;
+}
+
+.bullets label {
+	display: inline-block; /* 한 줄로 불릿 나열*/
+	border-radius: 50%; /* 원형 불릿으로 처리 */
+	background-color: rgba(0, 0, 0, 0.55);
+	width: 20px; /* 불릿 너비 */
+	height: 20px; /* 불릿 높이 */
+	cursor: pointer;
+}
+
+#career_container {
+	position: relative;
+    width: 300px;
+    height: 300px;
+    left: 81px;
+    bottom: 11px;
+}
+
+#detail_container {
+	position: relative;
+    left: 602px;
+    bottom: 527px;
+    font-size: 21px;
+}
+
+.slider input[type=radio] {
+	display: none;
+}
+
+ul.imgs {
+	padding: 0;
+	margin: 0;
+}
+
+li img {
+	width: 403px;
+	height: 250px;
+	border-radius: 10px;
+}
+
+ul.imgs li {
+	position: absolute; /* 슬라이드가 겹쳐서 모여야 하므로 absolute 속성으로 배치 */
+	opacity: 0; /* 체크한 라디오박스 순서의 슬라이드만 표시되도록 기본 투명도 설정 */
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.slider input[type=radio]:nth-child(1):checked ~.bullets>label:nth-child(1)
+	{
+	background-color: #fff;
+}
+
+.slider input[type=radio]:nth-child(2):checked ~.bullets>label:nth-child(2)
+	{
+	background-color: #fff;
+}
+
+.slider input[type=radio]:nth-child(3):checked ~.bullets>label:nth-child(3)
+	{
+	background-color: #fff;
+}
+
+.slider input[type=radio]:nth-child(4):checked ~.bullets>label:nth-child(4)
+	{
+	background-color: #fff;
+}
+
+.slider input[type=radio]:nth-child(5):checked ~.bullets>label:nth-child(5)
+	{
+	background-color: #fff;
+}
+
+.slider input[type=radio]:nth-child(1):checked ~ul.imgs>li:nth-child(1)
+	{
+	opacity: 1;
+	transition: 1s;
+	z-index: 1;
+}
+
+.slider input[type=radio]:nth-child(2):checked ~ul.imgs>li:nth-child(2)
+	{
+	opacity: 1;
+	transition: 1s;
+	z-index: 1;
+}
+
+.slider input[type=radio]:nth-child(3):checked ~ul.imgs>li:nth-child(3)
+	{
+	opacity: 1;
+	transition: 1s;
+	z-index: 1;
+}
+
+.slider input[type=radio]:nth-child(4):checked ~ul.imgs>li:nth-child(4)
+	{
+	opacity: 1;
+	transition: 1s;
+	z-index: 1;
+}
+
+.slider input[type=radio]:nth-child(5):checked ~ul.imgs>li:nth-child(5)
+	{
+	opacity: 1;
+	transition: 1s;
+	z-index: 1;
+}
+
+ul.imgs li {
+	position: absolute;
+	opacity: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	transition-delay: 0.9s; /* 트랜지션 지연 시간 지정 */
+}
+
+#sell_btn {
+	position: absolute;
+	top: 685px;
+	right: 284px;
+	width: 270px;
+	height: 58px;
+	box-shadow: 2px 2px 5px #999;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 20px;
+	background: black;
+	color: #fff;
+}
+
+#sell_btn:hover {
+	background: #fff;
+	color: black;
+}
+
+#modify_btn {
+	position: absolute;
+	top: 685px;
+	left: 288px;
+	width: 270px;
+	height: 58px;
+	box-shadow: 2px 2px 5px #999;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 20px;
+	background: black;
+	color: #fff;
+}
+
+#modify_btn:hover, #rbtn:hover {
+	background: #fff;
+	color: black;
+}
+
+#career {
+	position: relative;
+    top: 44px;
+    left: 28px;
+    border: 0px;
+    box-shadow: 2px 2px 5px #999;
+    width: 400px;
+    height: 200px;
+    overflow: auto;
+}
+
+.cBtns {
+	margin: -2px;
+    width: 94px;
+    height: 25px;
+    border: 0px;
+    background-color: lightgray;
+    color: white;
+    font-size: 15px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#rbtn {
+	position: relative;
+    top: 56px;
+    left: 431px;
+    width: 270px;
+    height: 58px;
+    box-shadow: 2px 2px 5px #999;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid;
+    border-color: black;
+    border-radius: 20px;
+    background: black;
+    color: #fff;
+}
+
+
+
+#career_btn {
+	position: relative;
+    top: 42px;
+    left: 28px;
+}
+
+#detail_container table tr td:first-child {
+	text-align: left;
+	font-weight: bold;
+	padding: 10px;
+}
+
+#selfIntroduction {
+	font-size: 15px;
+    width: 379px;
+}

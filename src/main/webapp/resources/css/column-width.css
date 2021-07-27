@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/* 
+ * 컬럼 너비 조절
+ */
+
+/* 공통 */
+.etc {
+	min-width: 100px;
+}
+.etc2 {
+	min-width: 220px;
+}
+
+.no_data {
+	height: 100px;
+	text-align: center;
+}
+
+/* 회원 관리 */
+.mberCode {
+	min-width: 100px;
+}
+.mberId {
+	min-width: 120px;
+}
+.mberPw {
+	min-width: 120px;
+}
+.mberRlnm {
+	min-width: 120px;
+}
+.bankCode {
+	min-width: 100px;
+}
+.mberAcountNo {
+	min-width: 260px;
+}
+.mberEmail {
+	min-width: 240px;
+}
+.mberNcnm {
+	min-width: 120px;
+}
+.mberTel {
+	min-width: 160px;
+}
+.mberBrthdy {
+	min-width: 100px;
+}
+.mberAuthorLevel {
+	min-width: 100px;
+}
+.srbde {
+	min-width: 100px;
+}
+.mberSecsnAt {
+	min-width: 100px;
+}
+
+/* 관리자 문의 */
+.mngrInqryNo {
+	min-width: 100px;
+}
+
+.inqrySj {
+	min-width: 220px;
+}
+
+.inqryDt {
+	min-width: 100px;
+}
+
+/* 공지사항 관리 */
+.bbscttNo {
+	min-width: 100px;
+}
+
+.bbscttSj {
+	min-width: 220px;
+}
+
+.bbscttDt {
+	min-width: 100px;
+}
+
+/* 태그 관리 */
+.tagCode {
+	min-width: 100px;
+}
+
+.tagNm{
+	min-width: 120px;
+}
+
+.imageAdres {
+	min-width: 240px;
+}
+
+.tagReadCnt {
+	min-width: 100px;
+}
+
+
+/* 식사권 관리 */
+.resveCode {
+	min-width: 100px;
+}
+.resvePc {
+	min-width: 100px;
+}
+.resveDt {
+	min-width: 180px;
+}
+.setlePc {
+	min-width: 100px;
+}
+.setleDt {
+	min-width: 180px;
+}
+.setleAt {
+	min-width: 100px;
+}
+.refndReqstAt {
+	min-width: 100px;
+}
+.purchsDcsnAt {
+	min-width: 100px;
+}
+
+/* 히스토리 */
+.rcordDt {
+	min-width: 240px;
+}
+.histSe {
+	min-width: 140px;
+}
+.code {
+	min-width: 100px;
+}
+.history {
+	min-width: 600px;
+}

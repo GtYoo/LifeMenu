@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+#content_container {
+/*	border: 			2px solid red; */
+	position: 			relative;
+	width: 				auto;
+	left: 				0;
+	top: 				60px;
+	padding: 			0px;
+	align: 				center;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 30px;
+    margin-left: 30px;
+	  border-radius: 15px;
+    box-shadow: 0px 1px 5px rgba(34, 35, 58, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+table{
+	border-spacing: 0 20px;/*tr간격?*/
+	position: absolute;
+	left: 400px;
+       }
+.updateMberBtn{
+	position: absolute;
+    left: 409px;
+    bottom: 15px;
+}      
+        
+#title{
+       background-color:white;
+        text-align: left;	/*글자 좌정렬*/
+       }
+
+.btn{
+	width:150px;
+    background-color: #f8585b;
+    background : black;
+    border-color : black;
+    border : 2px solid;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px;
+    cursor: pointer;
+	border-radius : 3px;
+
+}
+
+.btn:hover {
+	border: 2px solid;
+	border-radius: 3px;
+	background: #fff;
+	color: black;
+	}
+
+

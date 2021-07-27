@@ -1,0 +1,400 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  
+  font-family: "Noto Sansf KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  
+  color: #444;
+  background-color: #fff;
+  
+  width: 120px;
+  padding: .6em 1.4em .5em .8em;
+  margin: 0;
+  
+  border: 1px solid #aaa;
+  border-radius: .5em;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
+label {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  
+  color: #444;
+  
+  margin-right: 0.5em;
+}
+
+input[type="text"] { 
+	width: 100%;
+	height: auto;
+	line-height: normal;
+	padding: .8em .5em;
+}
+
+input[type="button"] {
+    width:100px;
+    background-color: #f8585b;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    display: inline-block;
+
+    font-size: 15px;
+    
+    margin: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+	width:100px;
+    background-color: #f8585b;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    display: inline-block;
+
+    font-size: 15px;
+    
+    margin: 4px;
+    cursor: pointer;
+}
+
+input::placeholder {              /* Chrome, Safari, Firefox */
+  opacity: 1;
+}
+input:-ms-input-placeholder {     /* IE, Edge */
+  opacity: 1;
+}
+
+#nav {
+	position: absolute;
+	top: 240px;
+	left: 500px;
+	list-stype: none;
+	width: 500px;
+	height: 140px;
+	padding: 5px 1px;
+	margin: 0;
+	background: #f29c74;
+}
+
+#nav li {
+	float: left;
+	position: relative;
+	margin: 5px 30px;
+	padding: 0;
+}
+
+#nav li a {
+	display: block;
+	font-family: "굴림";
+	font-weight: bold;
+	font-size: 18px;
+	padding: 7px 8px;
+	margin: 0;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#nav li:hover > a {
+	background: #ffcab2;
+	color: black;
+	margin: 0;
+	padding: 5px;
+}
+
+#nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	width: 105px;
+	background: #ffcab2;
+	text-align: center;
+}
+
+.box-wrap {
+	dispaly: flex;
+	height: 85%;
+	flex-wrap:wrap;
+	justify-content: flex-start;
+	padding-top: 10px;
+}
+
+.box {
+	display: flex;
+	width: 100%;
+	height: 100%; 
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	height: 80px;
+}
+
+.search {
+	height: 80px;
+}
+
+.s_box {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+.combo {
+	min-width: 120px;
+}
+
+.search_text {
+	min-width: 50%;
+}
+
+.search_btn {
+	min-width: 80px;
+}
+
+.search_option {
+	min-width: 120px;
+}
+
+.regist {
+	min-width: 80px;
+}
+
+/* 데이터 출력 부분 */
+.list.box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    overflow: auto;
+    justify-content: flex-start;
+}
+
+.l_box {
+	width: 95%;
+	height: 24px;
+	margin-top: 5px;
+	padding: 5px;
+	text-align: center;
+}
+
+.l_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.l_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 5px;
+}
+
+.page_no {
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.l_column {
+	width: 100px;
+}
+
+
+#filter_contents {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 260px;
+	left: 140px;
+	padding: 10px;
+	
+	border: 1px solid black;
+	background-color: #ff8080;
+}
+
+#insertTagForm {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	background-color: #c0c0c0;
+	height: 80px;
+}
+
+.f_box {
+	padding: 5px;
+}
+
+
+/* 
+ * 컬럼들
+ * 
+ */
+
+/* 공통 */
+.etc {
+	min-width: 100px;
+}
+.etc2 {
+	min-width: 200px;
+}
+
+.no_data {
+	height: 100px;
+}
+
+/* 회원 관리 */
+.mberCode {
+	min-width: 100px;
+}
+.mberId {
+	min-width: 120px;
+}
+.mberPw {
+	min-width: 120px;
+}
+.mberRlnm {
+	min-width: 120px;
+}
+.bankCode {
+	min-width: 100px;
+}
+.mberAcountNo {
+	min-width: 260px;
+}
+.mberEmail {
+	min-width: 240px;
+}
+.mberNcnm {
+	min-width: 100px;
+}
+.mberTel {
+	min-width: 160px;
+}
+.mberBrthdy {
+	min-width: 100px;
+}
+.mberAuthorLevel {
+	min-width: 100px;
+}
+.srbde {
+	min-width: 100px;
+}
+.mberSecsnAt {
+	min-width: 100px;
+}
+
+/* 관리자 문의 */
+.mngrInqryNo {
+	min-width: 100px;
+}
+
+.inqrySj {
+	min-width: 220px;
+}
+
+.inqryDt {
+	min-width: 100px;
+}
+
+/* 공지사항 관리 */
+.bbscttNo {
+	min-width: 100px;
+}
+
+.bbscttSj {
+	min-width: 220px;
+}
+
+.bbscttDt {
+	min-width: 100px;
+}
+
+/* 태그 관리 */
+.tagCode {
+	min-width: 100px;
+}
+
+.tagNm{
+	min-width: 120px;
+}
+
+.imageAdres {
+	min-width: 240px;
+}
+
+.tagReadCnt {
+	min-width: 100px;
+}
+
+
+/* 식사권 관리 */
+.resveCode {
+	min-width: 100px;
+}
+.resvePc {
+	min-width: 120px;
+}
+.resveDt {
+	min-width: 100px;
+}
+.setlePc {
+	min-width: 120px;
+}
+.setleDt {
+	min-width: 100px;
+}
+.setleAt {
+	min-width: 100px;
+}
+.refndReqstAt {
+	min-width: 100px;
+}
+.purchsDcsnAt {
+	min-width: 100px;
+}

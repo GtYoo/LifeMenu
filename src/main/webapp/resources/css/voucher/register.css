@@ -1,0 +1,49 @@
+@charset "UTF-8";
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+table {
+	text-align: right;
+}
+
+#datefield {
+	width: 208px;
+}
+
+table input {
+	width: 205px;
+}
+
+table td {
+	padding-top: 20px;
+}
+
+#register {
+	position: relative;
+    top: 37px;
+    left: 100px;
+    border-radius: 126px;
+    width: 159px;
+    height: 44px;
+    box-shadow: 2px 2px 5px #999;
+    font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 10px;
+	background: black;
+	color: #fff;
+}
+
+#register:hover {
+	background: #fff;
+	color: black;
+}
+
+#registerFrm {
+	position: relative;
+    left: 31px;
+    top: 9px;
+    width: 390px;
+}

@@ -1,0 +1,93 @@
+@charset "UTF-8";
+h1 {
+	text-align: center;
+	margin: 0px;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#voucher_big_container {
+	padding: 8px;
+	height: 485px;
+	overflow: auto;
+}
+
+.btn {
+	position: absolute;
+	top: 642px;
+	border-radius: 126px;
+	width: 286px;
+	height: 63px;
+	box-shadow: 2px 2px 5px #999;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 20px;
+	background: black;
+	color: #fff;
+}
+
+.btn:hover {
+	background: #fff;
+	color: black;
+}
+
+.vochr_box {
+	border: 0px;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px #999;
+	border-radius: 2px;
+	height: 190px;
+	width: 180px;
+	margin: 15px;
+	text-align: center;
+}
+
+.vochr_box tr{
+	margin: 0px;
+	padding: 0px;
+}
+.vochr_box tr td{
+	margin: 0px;
+	padding: 0px;
+}
+
+#regist {
+	left: 627px;
+}
+
+#remove {
+	left: 250px;
+}
+.money {
+	color: #FFE53B;
+	background: linear-gradient(147deg, #FFE53B 0%, #fd3838 74%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.subtitle {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#vochr_container {
+	margin: 16px;
+    margin-left: 35px;
+}
+
+#voucher_big_container::-webkit-scrollbar {
+	width: 10px;
+}
+
+#voucher_big_container::-webkit-scrollbar-thumb {
+	background-color: pink;
+	border-radius: 20px;
+}
+
+#voucher_big_container::-webkit-scrollbar-track {
+	background-color: transparent;
+}
