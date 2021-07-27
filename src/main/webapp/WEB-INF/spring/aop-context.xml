@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+ 	<aop:aspectj-autoproxy/>
+ 	
+ 	<bean id="serviceAspect" class="com.lifemenu.admin.aop.ServiceAspect"/>
+ 	<bean id="vochrHistAspect" class="com.lifemenu.admin.aop.VochrHistAspect"/>
+ 	
+ 	<aop:config>
+ 	    <aop:aspect id="lifemenuAspect" ref="serviceAspect">
+ 	        <aop:pointcut expression="execution(* com.lifemenu.service.*.*(..))" id="executionServicePointcut"/>
+ 	        <aop:before method="before" pointcut-ref="executionServicePointcut"/>
+ 	        <aop:pointcut expression="execution(* com.lifemenu.admin.service.*.*(..))" id="executionAdminServicePointcut"/>
+ 	        <aop:before method="before" pointcut-ref="executionAdminServicePointcut"/>
+ 	    </aop:aspect>
+ 	    
+ 	    <aop:aspect id="lifemenuVochrHistAspect" ref="vochrHistAspect">
+ 	        <aop:pointcut expression="execution(* com.lifemenu.service.VoucherServiceImpl.insertVoucher(..))" id="insertVochrPointcut"/>
+ 	        <aop:after-returning method="afterReturningInsertVoucher" pointcut-ref="insertVochrPointcut"/>
+ 	        <aop:pointcut expression="execution(* com.lifemenu.service.VoucherServiceImpl.updateVoucher(..))" id="updateVochrPointcut"/>
+ 	        <aop:after-returning method="afterReturningUpdateVoucher" pointcut-ref="updateVochrPointcut"/>
+ 	    </aop:aspect>
+ 	</aop:config>
+
+</beans>
